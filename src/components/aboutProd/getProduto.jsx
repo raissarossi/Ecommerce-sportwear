@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import api from '../../services/api';
 
 
-function GetProdutos({ qtd, styleImg, styleDiv, random }) {
+function GetProdutos({ qtd, styleImg, styleDiv, random, cols }) {
     const [listaProdutos, setListaProdutos] = useState([])
     useEffect(() => {
         api.get("loja/corfoto/")
@@ -20,13 +20,13 @@ function GetProdutos({ qtd, styleImg, styleDiv, random }) {
 
     const styles = () => {
         let style = ""
-        if (styleImg == 1) {
-            style = "rounded-full h-64 w-64 flex"
+        if (styleImg === 1) {
+            style = "rounded-full h-36 w-36 md:h-48 md:w-48 lg:h-64 lg:w-64 xl:h-72 xl:w-72 flex"
         }
-        if (styleImg == 2) {
+        if (styleImg === 2) {
             style = "rounded-3xl h-64 w-52 p-2"
         }
-        if (styleImg == 3) {
+        if (styleImg === 3) {
             style = "rounded-xl h-64 w-64 p-2"
         }
         return style
@@ -34,8 +34,8 @@ function GetProdutos({ qtd, styleImg, styleDiv, random }) {
 
     const stylesDiv = () => {
         let style = ""
-        if (styleDiv == 1) {
-            style = "flex flex-row justify-evenly mt-10"
+        if (styleDiv === 1) {
+            style = "flex flex-row mt-10 w-11/12"
         }
         return style
     }
@@ -51,8 +51,8 @@ function GetProdutos({ qtd, styleImg, styleDiv, random }) {
         }
     }
     return (
-        <>
-            <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 ${stylesDiv()}`}>
+        <div className='w-full flex justify-center items-center '>
+            <div className={`grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 ${stylesDiv()}`}>
                 {listaProdutos.map((item) => (
                     <>
                         {mostrar() ? (
@@ -68,7 +68,7 @@ function GetProdutos({ qtd, styleImg, styleDiv, random }) {
                     </>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 

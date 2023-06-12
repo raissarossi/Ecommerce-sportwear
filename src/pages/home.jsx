@@ -25,9 +25,6 @@ export default function Home() {
     })
   }, [])
 
-  function printarProdutos() {
-    console.log(produtos);
-  }
   return (
     <div>
       <Carousel>
@@ -83,14 +80,14 @@ export default function Home() {
       </Carousel>
 
       <div className='pt-10 flex justify-evenly'>
-        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white" onClick={() => { rota("/produtos") }}>All Products</button>
-        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white" onClick={() => { rota("/produtos") }}>All Products</button>
-        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white" onClick={() => { rota("/produtos") }}>All Products</button>
-        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white" onClick={() => { rota("/produtos") }}>All Products</button>
+        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white text-sm md:text-lg" onClick={() => { rota("/produtos") }}>All Products</button>
+        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white text-sm md:text-lg" onClick={() => { rota("/produtos") }}>All Products</button>
+        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white text-sm md:text-lg" onClick={() => { rota("/produtos") }}>All Products</button>
+        <button className="bg-black rounded-full w-1/5 lg1:w-2/12 h-8 lg1:h-12 text-white text-sm md:text-lg" onClick={() => { rota("/produtos") }}>All Products</button>
       </div>
 
 
-      <GetProdutos className='flex' qtd={4} styleImg={1} styleDiv={1} />
+      <GetProdutos className='flex' qtd={4} styleImg={1} styleDiv={1}/>
 
 
       <div>

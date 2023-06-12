@@ -36,7 +36,7 @@ const Cart = ({ add, remove, move }) => {
     const finalizar = () => {
         localStorage.removeItem('cart')
         setTimeout(() => {
-            rota('/home')
+            rota('/')
         }, 3000);
     }
 

@@ -18,7 +18,7 @@ const Cadastro = () => {
         }).then((res) => {
             console.log(res);
             localStorage.setItem('dados', JSON.stringify(res.data))
-            rota('/')
+            rota('/login')
         })
     }
 

@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const dados = JSON.parse(localStorage.getItem('dados'))
+    const dados = JSON.parse(localStorage.getItem('user'))
     const rota = useNavigate();
 
     return (
@@ -10,7 +9,7 @@ const Navbar = () => {
             <div className="h-12 bg-black flex justify-between items-center">
 
                 <div className="text-white">
-                    {dados != undefined ?
+                    {dados !== undefined ?
                         <>
                             <>{dados.login}</>
                         </>

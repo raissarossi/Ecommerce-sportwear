@@ -16,7 +16,7 @@ function App() {
   const [visible, setVisible] = useState(true)
   useEffect(()=>{
     console.log(pagina);
-    if (pagina.pathname === '/cadastro' || pagina.pathname === '/'){
+    if (pagina.pathname === '/cadastro' || pagina.pathname === '/login'){
       setVisible(false)
     }
     else{
@@ -71,8 +71,8 @@ function App() {
     <div>
       {visible ? <Navbar /> : <></>}
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/produtos' element={<Produtos />} />
         <Route path='/produto/:id' element={<ProdutoDetalhe add={add} />} />
         <Route path='/yourcart' element={<Cart add={add} remove={remove} move={move} />} />

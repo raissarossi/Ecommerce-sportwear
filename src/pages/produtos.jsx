@@ -6,7 +6,7 @@ import BackBtn from "../components/general/backBtn";
 
 
 const Produtos = () => {
-    api.get("loja/produtos")
+    api.get("/loja/corfoto/")
         .then((res) => {
             console.log(res.data)
         })

@@ -18,19 +18,19 @@ const ProdutoDetalhe = ({ add }) => {
   const [nome, setNome] = useState([])
   const [descricao, setDescricao] = useState([])
   const [preco, setPreco] = useState([])
-  const [marca, setMarca] = useState([])
-  const [genero, setGenero] = useState([])
-  const [categoria, setCategoria] = useState([])
-  const [ocasiao, setOcasiao] = useState([])
-  const [coresDisponiveis, setCoresDisponiveis] = useState([])
-  const [tamDisponiveis, setTamDisponiveis] = useState([])
+  // const [marca, setMarca] = useState([])
+  // const [genero, setGenero] = useState([])
+  // const [categoria, setCategoria] = useState([])
+  // const [ocasiao, setOcasiao] = useState([])
+  // const [coresDisponiveis, setCoresDisponiveis] = useState([])
+  // const [tamDisponiveis, setTamDisponiveis] = useState([])
 
   useEffect(() => {
-    api.get("loja/corfoto/")
+    api.get("/loja/corfoto/")
       .then((res) => {
         res.data.map((item) => {
-          if (item.id == id) {
-            console.log(item)
+          if (item.id === id) {
+            console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
             setIdProduto(item.id)
             setFoto(item.foto)
             setIdPeca(item.peca)
@@ -42,7 +42,7 @@ const ProdutoDetalhe = ({ add }) => {
   }, [])
 
   useEffect(() => {
-    api.get(`loja/peca/${idPeca}/`)
+    api.get(`/loja/peca/${idPeca}/`)
       .then((res) => {
         setNome(res.data.nome)
         setDescricao(res.data.descricao)
@@ -51,9 +51,8 @@ const ProdutoDetalhe = ({ add }) => {
   }, [idPeca])
 
   useEffect(() => {
-    api.get(`loja/cores/${idCor}/`)
+    api.get(`/loja/cores/${idCor}/`)
       .then((res) => {
-        console.log("qqqqqqqqqqq")
         setCor(res.data.nome)
       })
   }, [idCor])

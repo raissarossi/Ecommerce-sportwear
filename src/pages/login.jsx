@@ -13,24 +13,19 @@ function Login() {
   const [login, setLogin] = useState("")
   const [senha, setSenha] = useState("")
 
-  const logar = () =>{
-    localStorage.setItem("dados", JSON.stringify({login:login, senha:senha}))
-    rota("/home")
-  }
-
-
   const Logar = () => {
     api.post('auth/jwt/create', {
       username: login,
       password: senha
     }).then((res) => {
       console.log(res)
+      localStorage.setItem("user", JSON.stringify({login:login, senha:senha}))
       localStorage.setItem('dados', JSON.stringify(res.data));
-      rota('/home')
+      rota('/')
     })
     .catch((error) => {
       console.log(error);
-      rota('/')
+      rota('/login')
     })
   }
   return (
