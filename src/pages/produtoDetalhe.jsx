@@ -28,6 +28,7 @@ const ProdutoDetalhe = ({ add }) => {
   useEffect(() => {
     api.get("/loja/corfoto/")
       .then((res) => {
+        console.log(res);
         res.data.map((item) => {
           if (item.id === id) {
             console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
@@ -42,6 +43,8 @@ const ProdutoDetalhe = ({ add }) => {
   }, [])
 
   useEffect(() => {
+  console.log("id peça");
+    console.log(idPeca);
     api.get(`/loja/peca/${idPeca}/`)
       .then((res) => {
         setNome(res.data.nome)
