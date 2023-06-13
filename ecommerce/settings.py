@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=3n-zv$f74#yyc&d98%d8_ewtx7+n=v4cfu$5kdluqcpte_g68
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*', 'https://ecommerce-sportwear.vercel.app']
 
 
 # Application definition
@@ -61,7 +61,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'https://ecommerce-sportwear.vercel.app',
+    '*'
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
