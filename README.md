@@ -1,3 +1,7 @@
+#Exemple Account - to test
+User: rai_rai
+Password: 1q2w3E4R!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
