@@ -11,10 +11,10 @@ const ProdutoDetalhe = ({ add }) => {
   const navigate = useNavigate()
 
   const [idProduto, setIdProduto] = useState([])
+  const [idPeca, setIdPeca] = useState("")
+  const [idCor, setIdCor] = useState("")
   const [foto, setFoto] = useState([])
-  const [idCor, setIdCor] = useState(0)
   const [cor, setCor] = useState([])
-  const [idPeca, setIdPeca] = useState(0)
   const [nome, setNome] = useState([])
   const [descricao, setDescricao] = useState([])
   const [preco, setPreco] = useState([])
@@ -25,37 +25,41 @@ const ProdutoDetalhe = ({ add }) => {
   // const [coresDisponiveis, setCoresDisponiveis] = useState([])
   // const [tamDisponiveis, setTamDisponiveis] = useState([])
 
+
   useEffect(() => {
-    api.get("/loja/corfoto/")
+    api.get("loja/corfoto/")
       .then((res) => {
-        console.log(res);
         res.data.map((item) => {
-          if (item.id === id) {
-            console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+          if (item.id == id) {
+            console.log(item)
             setIdProduto(item.id)
             setFoto(item.foto)
-            setIdPeca(item.peca)
             setIdCor(item.cor)
+            setIdPeca(item.peca)
             return null
           }
         })
       })
-  }, [])
-
-  useEffect(() => {
-  console.log("id peça");
-    console.log(idPeca);
-    api.get(`/loja/peca/${idPeca}/`)
-      .then((res) => {
-        setNome(res.data.nome)
-        setDescricao(res.data.descricao)
-        setPreco(res.data.preco)
-      })
-  }, [idPeca])
-
-  useEffect(() => {
-    api.get(`/loja/cores/${idCor}/`)
-      .then((res) => {
+    }, [])
+    
+    useEffect(() => {
+      api.get(`loja/peca/${idPeca}/`)
+        .then((res) => {
+          console.log("PECAAAAAAAAAAA")
+          console.log(res.data.nome)
+          console.log(res.data.descricao)
+          console.log(res.data.preco)
+          setNome(res.data.nome)
+          setDescricao(res.data.descricao)
+          setPreco(res.data.preco)
+        })
+      }, [idPeca])
+      
+      useEffect(() => {
+        api.get(`loja/cores/${idCor}/`)
+        .then((res) => {
+        console.log("COOOORRRRRRRRR")
+        console.log(res.data.nome)
         setCor(res.data.nome)
       })
   }, [idCor])
@@ -66,7 +70,7 @@ const ProdutoDetalhe = ({ add }) => {
       <div className='flex w-full justify-center'>
         <div className='flex w-11/12 lg:w-4/6'>
           <div className='sm:w-1/2 w-full px-10 sm:max-h-[450px] flex flex-col justify-between'>
-            
+
             <div>
               <h1 className="text-black text-3xl">{nome}</h1>
               <p className="text-black text-xl">{cor}</p>

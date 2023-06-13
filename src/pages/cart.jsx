@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Alert from "../components/general/alert";
 import BackBtn from '../components/general/backBtn'
 import Button from "../components/general/button";
 
 const Cart = ({ add, remove, move }) => {
     const rota = useNavigate()
+    const dados = JSON.parse(localStorage.getItem('user'))
     const [cart, setCart] = useState(false)
     const [lista, setLista] = useState([])
     const [soma, setSoma] = useState(0)
@@ -14,7 +16,7 @@ const Cart = ({ add, remove, move }) => {
             setLista(JSON.parse(localStorage.getItem('cart')))
             setCart(true)
         }
-        if(JSON.parse(localStorage.getItem('cart'))){
+        if (JSON.parse(localStorage.getItem('cart'))) {
             if (JSON.parse(localStorage.getItem('cart')).length === 0) {
                 setCart(false)
             }
@@ -26,17 +28,24 @@ const Cart = ({ add, remove, move }) => {
         else {
             setCart(false)
         }
+    }, [move])
 
+    useEffect(() => {
         const total = lista.reduce((acc, item) => {
             return acc + item.precoU * item.qtd;
         }, 0);
         setSoma(total);
-    }, [move, lista])
+    }, [lista])
 
     const finalizar = () => {
         localStorage.removeItem('cart')
         setTimeout(() => {
             rota('/')
+        }, 3000);
+    }
+    const redirecionar = () => {
+        setTimeout(() => {
+            rota('/login')
         }, 3000);
     }
 
@@ -77,7 +86,11 @@ const Cart = ({ add, remove, move }) => {
                         <h1>Total: ${soma}</h1>
                     </div>
                     <div className="w-full flex justify-center">
-                        <Button children={"Checkout"} onClick={() => finalizar()} width={"w-64"} title={"Approved"} text={"Yeahh... Your purchase was successful"} alert={true}/>
+                        {dados ?
+                            <Button children={"Checkout"} onClick={() => finalizar()} width={"w-64"} title={"Approved"} text={"Yeahh... Your purchase was successful"} alert={true} />
+                            :
+                            <Button children={"Checkout"} onClick={() => redirecionar()} width={"w-64"} title={"Error"} text={"Ops... You are not logged"} alert={true} color={"red"}/>
+                        }
                     </div>
                 </>
                 :

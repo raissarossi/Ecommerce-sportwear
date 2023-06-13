@@ -27,16 +27,16 @@ const Cadastro = () => {
             <div className="container relative before:absolute before:w-11/12 before:bg-[#fdfdfd] z-30 
           before:opacity-50 before:-z-10  before:h-full before:rounded-xl h-3/6 rounded-xl 
           items-center flex flex-col justify-evenly max-w-md">
-                <div>
+                <div className="flex flex-col justify-center items-center">
                     <input type="email" placeholder="email" name="email" id="email"
-                        className='border border-black rounded-full w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 placeholder:p-3' onChange={e => setEmail(e.target.value)} />
-                    <input type="text" placeholder="password" name="password" id="password"
-                        className='border border-black rounded-full w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 placeholder:p-3' onChange={e => setUsername(e.target.value)} />
+                        className='border border-black rounded-full sm:w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 placeholder:p-3 my-4' onChange={e => setEmail(e.target.value)} />
+                    <input type="text" placeholder="username" name="username" id="username"
+                        className='border border-black rounded-full sm:w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 placeholder:p-3 my-4' onChange={e => setUsername(e.target.value)} />
                     <input type="password" placeholder="password" name="password" id="password"
-                        className='border border-black rounded-full w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 placeholder:p-3' onChange={e => setPassword(e.target.value)} />
+                        className='border border-black rounded-full sm:w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 placeholder:p-3 my-4' onChange={e => setPassword(e.target.value)} />
                 </div>
 
-                <Button children={'oii'} onClick={() => CreateUser()} width={'w-4/5'}></Button>
+                <Button children={'Log In'} onClick={() => CreateUser()} width={'w-4/5'}></Button>
             </div>
         </div>
     );

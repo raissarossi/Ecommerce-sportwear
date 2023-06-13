@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Alert from "./alert";
 
-const Button = ({ children, onClick, width, title, text, alert }) => {
+const Button = ({ children, onClick, width, title, text, alert, color }) => {
     const [showAlert, setShowAlert] = useState(false)
     const handleClick = () => {
         setShowAlert(true)
@@ -19,6 +19,7 @@ const Button = ({ children, onClick, width, title, text, alert }) => {
                         <Alert
                             title={title}
                             text={text}
+                            color={color}
                         />
                     )
                 :

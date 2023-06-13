@@ -17,11 +17,6 @@ export default function Home() {
     api.get("loja/corfoto/").then((res) => {
       console.log(res.data)
       setProdutos(res.data)
-      /*
-      if preto
-      produtos choice 
-      setprodutosaleatoriso 
-      */
     })
   }, [])
 
