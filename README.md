@@ -1,5 +1,5 @@
 # Exemple Account - to test
-User: rai_rai.\
+User: rai_rai \
 Password: 1q2w3E4R!
 
 # Getting Started with Create React App
