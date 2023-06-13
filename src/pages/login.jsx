@@ -34,7 +34,7 @@ function Login() {
         before:opacity-50 before:-z-10  before:h-full before:rounded-xl h-3/6 rounded-xl 
         items-center flex flex-col justify-evenly max-w-md">
 
-        <input type="email" placeholder="email" name="email" id="email"
+        <input type="user" placeholder="user" name="user" id="user"
           className='border border-black rounded-full w-4/5 h-12 pl-2 bg-transparent placeholder:text-grey2 
           placeholder:p-3' onChange={e=>setLogin(e.target.value)}/>
         <input type="password" placeholder="password" name="password" id="password"
